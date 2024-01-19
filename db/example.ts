@@ -1,14 +1,16 @@
 import mongoose from "mongoose"
-import { Example } from "../types.ts"
+import { Contact } from "../types.ts"
 
-const Schema = new mongoose.Schema
+const Schema = mongoose.Schema
 
-const exampleSchema = new Schema (
+const contactSchema = new Schema (
     {
-        valor: {type: String, required: true, unique: false}
+        name: {type: String, required: true, unique: false},
+        phoneNumber: {type: String, required: true, unique: true},
+        country: {type: String, requiered: false, unique: false}
     },
     {timestamps: true}
 )
 
-export type ExampleModelType = mongoose.Document & Omit<Example, "id">
-export const ExampleModel = mongoose.model<ExampleModelType>("Example", exampleSchema)
+export type ContactModelType = mongoose.Document & Omit<Contact, "id">
+export const ContactModel = mongoose.model<ContactModelType>("Example", contactSchema)

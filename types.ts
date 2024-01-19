@@ -1,4 +1,8 @@
-export type Example = {
+export type Contact = {
     id: string,
-    valor: string
+    name: string,
+    phoneNumber: string,
+    country: string,
+    capital: string,
+    datetime: string
 }
